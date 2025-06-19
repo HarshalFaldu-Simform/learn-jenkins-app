@@ -34,6 +34,7 @@ pipeline {
                 sh '''
                     echo "Testing build"
                     #test -f build/index.html
+                    chmod -R 777 test-results
                     npm test
                 '''
             }
