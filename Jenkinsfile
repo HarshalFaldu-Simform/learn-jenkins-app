@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir() // This wipes out the entire workspace directory
-            }
-        }
-        /*
         stage('Build') {
             agent {
                 docker {
@@ -20,13 +14,11 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    rm -rf node_modules
                     npm ci
                     npm run build
                     ls -la
                 '''
             }
         }
-        */
     }
 }
