@@ -30,9 +30,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "Testing build"
                     #test -f build/index.html
-                    chmod -R 777 test-results
                     npm test
                 '''
             }
@@ -47,10 +45,8 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "E2E Testing"
                     npm install serve
-                    node_modules/.bin/serve -s build &
-                    sleep 10
+                    node_modules/.bin/serve -s build
                     npx playwright test
                 '''
             }
